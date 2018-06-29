@@ -1,3 +1,5 @@
+[![Build Status](https://semaphoreci.com/api/v1/pedroperrone/elixir-sorting/branches/master/badge.svg)](https://semaphoreci.com/pedroperrone/elixir-sorting)
+
 # ExSorting
 
 **TODO: Add description**
