@@ -4,7 +4,7 @@ defmodule QuickSort.Linear do
   def perform([pivot | []]), do: [pivot]
 
   def perform([pivot | rest]) do
-    { smaller_or_equal, greater } = partitionate_list(pivot, rest)
+    {smaller_or_equal, greater} = partitionate_list(pivot, rest)
     perform(smaller_or_equal) ++ [pivot] ++ perform(greater)
   end
 
