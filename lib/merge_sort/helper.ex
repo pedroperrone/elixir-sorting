@@ -12,4 +12,8 @@ defmodule MergeSort.Helper do
       [second_head] ++ merge([first_head | first_tail], second_tail)
     end
   end
+
+  def divide_list(list) do
+    Enum.split(list, trunc(length(list) / 2))
+  end
 end

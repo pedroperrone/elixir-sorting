@@ -10,10 +10,6 @@ defmodule MergeSort.Linear do
     |> merge_sublists
   end
 
-  defp divide_list(list) do
-    Enum.split(list, trunc(length(list) / 2))
-  end
-
   defp merge_sublists({first_list, second_list}) do
     merge(perform(first_list), perform(second_list))
   end
