@@ -1,3 +1,4 @@
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/fc5fc473d7ce4eafa09211e97d898d66)](https://app.codacy.com/app/pedroperrone/elixir-sorting?utm_source=github.com&utm_medium=referral&utm_content=pedroperrone/elixir-sorting&utm_campaign=badger)
 [![Build Status](https://semaphoreci.com/api/v1/pedroperrone/elixir-sorting/branches/master/badge.svg)](https://semaphoreci.com/pedroperrone/elixir-sorting)
 
 # ExSorting
