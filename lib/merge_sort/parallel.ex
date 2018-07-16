@@ -7,7 +7,8 @@ defmodule MergeSort.Parallel do
   def perform([single_element | []]), do: [single_element]
 
   def perform(list) do
-    divide_list(list)
+    list
+    |> divide_list
     |> merge_sublists
   end
 
