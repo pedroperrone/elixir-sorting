@@ -13,7 +13,6 @@ defmodule QuickSort do
   def parallel([pivot | []]), do: [pivot]
 
   def parallel([pivot | rest]) do
-    me = self()
     {smaller_or_equal, greaters} = partitionate_list(pivot, rest)
     Parallel.task(fn -> linear(smaller_or_equal) end, :smallers)
     Parallel.task(fn -> linear(greaters) end, :greaters)

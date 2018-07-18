@@ -3,22 +3,21 @@
 
 # ExSorting
 
-**TODO: Add description**
+## Dependencies
+* Elixir 1.6.4
 
-## Installation
+## The project
 
-If [available in Hex](https://hex.pm/docs/publish), the package can be installed
-by adding `ex_sorting` to your list of dependencies in `mix.exs`:
+The content in this repository was made with the intent of practice the use of the Elixir language and explore its parallelization capacity.
 
-```elixir
-def deps do
-  [
-    {:ex_sorting, "~> 0.1.0"}
-  ]
-end
+To use it, clone this repo, navigate to its directory and run `iex -S mix`. There you will have access to two sorting algorithms (MergeSort and QuickSort) with their linear and parallel versions. You can use them following this exemple:
 ```
+list = [4, 7, 2, 9, 0]
+MergeSort.parallel(list)
+```
+The project also has a `Benchmark` module to assist you in the performance tests. If you want to test how much time it takes to sort a randomic list with 10 million elements, you can use the `Benchmark.random_list_with_size/1` and `Benchmark.measure/1` functions.
 
-Documentation can be generated with [ExDoc](https://github.com/elixir-lang/ex_doc)
-and published on [HexDocs](https://hexdocs.pm). Once published, the docs can
-be found at [https://hexdocs.pm/ex_sorting](https://hexdocs.pm/ex_sorting).
-
+```
+list = Benchmark.random_list_with_size(10_000_000)
+Benchmark.measure(fn -> MergeSort.parallel(list, 3) end)
+```
