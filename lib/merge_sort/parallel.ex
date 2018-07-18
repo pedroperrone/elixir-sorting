@@ -13,25 +13,12 @@ defmodule MergeSort.Parallel do
   end
 
   defp merge_sublists({first_list, second_list}) do
-    me = self()
-    spawn_sort(first_list, :first_list, me)
-    spawn_sort(second_list, :second_list, me)
-    merge(capture_sorted_list(:first_list), capture_sorted_list(:second_list))
-  end
+    Parallel.task(fn -> Linear.perform(first_list) end, :first_list)
+    Parallel.task(fn -> Linear.perform(second_list) end, :second_list)
 
-  defp spawn_sort(list, identifier, parent_process) do
-    spawn_link(fn ->
-      sort_and_send_to_parent_process(list, identifier, parent_process)
-    end)
-  end
-
-  defp sort_and_send_to_parent_process(list, identifier, parent_process) do
-    send(parent_process, {identifier, Linear.perform(list)})
-  end
-
-  defp capture_sorted_list(identifier) do
-    receive do
-      {^identifier, sorted_list} -> sorted_list
-    end
+    merge(
+      Parallel.capture_task(:first_list),
+      Parallel.capture_task(:second_list)
+    )
   end
 end
