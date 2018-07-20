@@ -1,4 +1,11 @@
 defmodule MergeSort do
+  @moduledoc """
+    Implement both linear and parallel versions of the Merge Sort Algorithm
+  """
+
+  @doc """
+    Linear version of the Merge Sort algorithm.
+  """
   def linear([]), do: []
   def linear(list = [_]), do: list
 
@@ -8,6 +15,11 @@ defmodule MergeSort do
     |> sort_sublists_linearly_and_merge
   end
 
+  @doc """
+    Parallel version of Merge Sort algirithm. Receives a list and a number wich
+    represents the amount of levels in the recurtion tree that will spawn new
+    threads. The default value is 1.
+  """
   def parallel(list, parallelism_level \\ 1)
 
   def parallel([], _), do: []

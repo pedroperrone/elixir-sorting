@@ -1,4 +1,11 @@
 defmodule QuickSort do
+  @moduledoc """
+    Implement both linear and parallel versions of the Quick Sort Algorithm
+  """
+
+  @doc """
+    Linear version of the Quick Sort algorithm.
+  """
   def linear([]), do: []
 
   def linear([pivot | []]), do: [pivot]
@@ -8,6 +15,10 @@ defmodule QuickSort do
     linear(smaller_or_equal) ++ [pivot] ++ linear(greater)
   end
 
+  @doc """
+    Parallel version of the Quick Sort algorithm. The current thread spawns two
+    new threads that run parallely.
+  """
   def parallel([]), do: []
 
   def parallel([pivot | []]), do: [pivot]
