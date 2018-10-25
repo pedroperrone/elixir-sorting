@@ -10,7 +10,7 @@
 
 The content in this repository was made with the intent of practice the use of the Elixir language and explore its parallelization capacity.
 
-To use it, clone this repo, navigate to its directory and run `iex -S mix`. There you will have access to two sorting algorithms (MergeSort and QuickSort) with their linear and parallel versions. You can use them following this exemple:
+To use it, clone this repo, navigate to its directory and run `iex -S mix`. There you will have access to two sorting algorithms (MergeSort and QuickSort) with their sequential and parallel versions. You can use them following this exemple:
 ```
 list = [4, 7, 2, 9, 0]
 MergeSort.parallel(list)

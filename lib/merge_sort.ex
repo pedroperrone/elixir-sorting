@@ -1,18 +1,18 @@
 defmodule MergeSort do
   @moduledoc """
-    Implement both linear and parallel versions of the Merge Sort Algorithm
+    Implement both sequential and parallel versions of the Merge Sort Algorithm
   """
 
   @doc """
-    Linear version of the Merge Sort algorithm.
+    Sequential version of the Merge Sort algorithm.
   """
-  def linear([]), do: []
-  def linear(list = [_]), do: list
+  def sequential([]), do: []
+  def sequential(list = [_]), do: list
 
-  def linear(list) do
+  def sequential(list) do
     list
     |> divide_list
-    |> sort_sublists_linearly_and_merge
+    |> sort_sublists_sequentially_and_merge
   end
 
   @doc """
@@ -37,8 +37,8 @@ defmodule MergeSort do
     |> sort_sublists_and_merge(parallelism_level, current_level + 1)
   end
 
-  defp sort_sublists_linearly_and_merge({first_list, second_list}) do
-    merge(linear(first_list), linear(second_list))
+  defp sort_sublists_sequentially_and_merge({first_list, second_list}) do
+    merge(sequential(first_list), sequential(second_list))
   end
 
   defp merge([], []), do: []
@@ -61,8 +61,8 @@ defmodule MergeSort do
          current_level
        )
        when parallelism_level < current_level do
-    Parallel.task(fn -> linear(first_list) end, :first_list)
-    Parallel.task(fn -> linear(second_list) end, :second_list)
+    Parallel.task(fn -> sequential(first_list) end, :first_list)
+    Parallel.task(fn -> sequential(second_list) end, :second_list)
 
     capture_sorted_lists_and_merge()
   end
